@@ -16,6 +16,7 @@
     "css-mqpacker": "^6.0.1",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
+    "gulp-changed": "^3.2.0",
     "gulp-ejs": "^3.1.3"
   }
 }
