@@ -26,7 +26,7 @@ var paths = {
   'templates': ['./_src/templates/**/*.ejs'],
   'scssSrc' : './_src/assets/scss/**/*.scss',
   'jsSrc'   : './_src/assets/js/**/*.js',
-  'imgSrc'  : './_src/assets/images/**/*.{png,jpg,gif,svg,ico}',
+  'imgSrc'  : './_src/assets/images/**/*.{png,jpg,gif,svg,ico,pdf}',
   'imgDir'  : './dist/assets/images/',
   'rootDir' : './dist/'
 };
