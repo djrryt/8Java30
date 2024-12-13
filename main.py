@@ -28,6 +28,20 @@ def create_main_window_with_browser():
     main_win = create_main_window()
     return main_win.add_browser_tab()
 
+StyleSheet = '''
+BookmarkWidget {
+    background-color: #fa9638;
+    font-size: 28px;
+}
+QToolBar {
+    background-color: #fa9638;
+    font-size: 28px;
+}
+QLineEdit {
+    background-color: #fa9638;
+    font-size: 28px;
+}
+'''
 
 class MainWindow(QMainWindow):
     """ウェブブラウジング体験を提供します。BookmarkWidget、BrowserTabWidget、DownloadWidgetを含む親ウィンドウを提供します。"""
@@ -76,6 +90,8 @@ class MainWindow(QMainWindow):
         self.insertToolBarBreak(self._bookmarksToolBar)
         self._bookmark_widget.changed.connect(self._update_bookmarks)
         self._update_bookmarks()
+
+        self.setStyleSheet(StyleSheet)
 
     def _update_bookmarks(self):
         self._bookmark_widget.populate_tool_bar(self._bookmarksToolBar)
@@ -229,6 +245,8 @@ class MainWindow(QMainWindow):
         shortcut=QKeySequence(QKeySequence.HelpContents),
         triggered=qApp.aboutQt)
         about_menu.addAction(about_action)
+        
+        self.setStyleSheet(StyleSheet)
 
     def add_browser_tab(self):
         return self._tab_widget.add_browser_tab()
