@@ -22,23 +22,34 @@ def create_main_window():
     main_win.show()
     return main_win
 
-
 def create_main_window_with_browser():
     """BrowserTabWidgetを持つMainWindowを作成します。"""
     main_win = create_main_window()
     return main_win.add_browser_tab()
 
 StyleSheet = '''
-BookmarkWidget {
-    background-color: #fa9638;
+QMenuBar {
+    background-color: #c7b2de;
     font-size: 28px;
 }
-QToolBar {
-    background-color: #fa9638;
+QMenu {
+    background-color: #87e7b0;
+    font-size: 28px;
+}
+QLabel {
+    background-color: #87e7b0;
     font-size: 28px;
 }
 QLineEdit {
-    background-color: #fa9638;
+    background-color: #c7b2de;
+    font-size: 28px;
+}
+QToolBar {
+    background-color: #c7b2de;
+    font-size: 28px;
+}
+BookmarkWidget {
+    background-color: #c7b2de;
     font-size: 28px;
 }
 '''
@@ -325,7 +336,7 @@ class MainWindow(QMainWindow):
         # 新しいダウンロードを開く前に古いダウンロードを削除する。
         for old_download in self.statusBar().children():
             if (type(old_download).__name__ == 'DownloadWidget' and
-                old_download.state() != QWebEngineDownloadItem.DownloadInProgress):
+                old_download.state() != QWebEngineDownloadRequest.DownloadInProgress):
                 self.statusBar().removeWidget(old_download)
                 del old_download
 
@@ -351,7 +362,6 @@ class MainWindow(QMainWindow):
 
     def write_bookmarks(self):
         self._bookmark_widget.write_bookmarks()
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
