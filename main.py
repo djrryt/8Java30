@@ -368,7 +368,7 @@ if __name__ == '__main__':
     main_win = create_main_window()
     initial_urls = sys.argv[1:]
     if not initial_urls:
-        initial_urls.append('https://www.jobridge.info/')
+        initial_urls.append('https://sbkunren.xsrv.jp/202408java/jikosyoukai/30/nasuportal/')
     for url in initial_urls:
         main_win.load_url_in_new_tab(QUrl.fromUserInput(url))
     exit_code = app.exec()
