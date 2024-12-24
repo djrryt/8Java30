@@ -12,13 +12,10 @@ _url_role = Qt.UserRole + 1
 # .jsonブックマーク・ファイルからの読み込み／.jsonブックマーク・ファイルへの書き込みに使われる形式です。
 _default_bookmarks = [
     ['お気に入り'],
-    ['https://www.jobridge.info/', 'Qt', ':/qt-project.org/qmessagebox/images/qtlogo-64.png'],
-    ['https://download.qt.io/snapshots/ci/pyside/', 'Downloads'],
-    ['https://doc.qt.io/qtforpython/', 'Documentation'],
-    ['https://bugreports.qt.io/projects/PYSIDE/', 'Bug Reports'],
-    ['https://www.python.org/', 'Python', None],
-    ['https://wiki.qt.io/PySide6', 'Qt for Python', None],
-    ['その他']
+    ['https://www.jobridge.info/', 'Jobridge'],
+    ['https://social-bridge.co.jp/college/', 'SB Career College'],
+    ['https://social-bridge.co.jp/', 'Social Bridge'],
+    ['https://sbkunren.xsrv.jp/202408java/jikosyoukai/30/nasuportal/', 'NasuPortal'],
 ]
 
 
@@ -132,6 +129,10 @@ class BookmarkWidget(QTreeView):
 
     # parent_itemの下にあるブックマークを、アクションのリストを持つQMenu/QToolBarのようなtarget_objectに同期します。既存のアクションを更新し、必要であれば新しいアクションを追加し、不要なアクションを非表示にする。
     def _populate_actions(self, parent_item, target_object, first_action):
+        if parent_item is None:
+            print("Warning: parent_item is None")
+        return
+        
         existing_actions = target_object.actions()
         existing_action_count = len(existing_actions)
         a = first_action
